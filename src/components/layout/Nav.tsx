@@ -12,6 +12,12 @@ import {
   Button,
 } from "@heroui/react";
 import Image from "next/image";
+import { Source_Serif_4 } from "next/font/google";
+
+const sourceSerif4 = Source_Serif_4({
+  subsets: ["latin"],
+  weight: "400", 
+});
 
 export const AcmeLogo = () => {
   return (
@@ -38,43 +44,41 @@ export default function App() {
   ];
 
   return (
-    <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+    <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="bg-white text-black">
       <NavbarContent className="sm:hidden" justify="start">
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        />
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
       </NavbarContent>
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit">DHANSHIRI</p>
+          <p className={`${sourceSerif4.className} font-bold`}>DHANSHIRI</p>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="start">
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit">DHANSHIRI</p>
+          <p className={`${sourceSerif4.className} font-bold`}>DHANSHIRI</p>
         </NavbarBrand>
-        
       </NavbarContent>
+
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-      <NavbarItem isActive>
-            <Link color="foreground" href="#">
-              Home
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Gallery
-            </Link>
-          </NavbarItem>
+        <NavbarItem isActive>
+          <Link color="foreground" href="#" className="text-black">
+            Home
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="#" className="text-black">
+            Gallery
+          </Link>
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link}  href="/contact-us" variant="flat" className="bg-green-500 text-white font-bold">
+          <Button as={Link} href="/contact-us" variant="flat" className="bg-green-500 text-white font-bold">
             Contact us
           </Button>
         </NavbarItem>
