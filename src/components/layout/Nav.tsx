@@ -13,6 +13,7 @@ import {
 } from "@heroui/react";
 import Image from "next/image";
 import { Source_Serif_4 } from "next/font/google";
+import { usePathname } from "next/navigation";
 
 const sourceSerif4 = Source_Serif_4({
   subsets: ["latin"],
@@ -28,7 +29,17 @@ export const AcmeLogo = () => {
 };
 
 export default function App() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Manufacturing Units", href: "/manufacturing-units" },
+    { name: "Products", href: "/products" },
+    { name: "Gallery", href: "/gallery" },
+  ];
+
 
   const menuItems = [
     "Profile",
@@ -63,17 +74,14 @@ export default function App() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem isActive>
-          <Link color="foreground" href="#" className="text-black">
-            Home
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#" className="text-black">
-            Gallery
-          </Link>
-        </NavbarItem>
+      <NavbarContent className="hidden sm:flex gap-12" justify="center">
+        {navLinks.map((link) => (
+          <NavbarItem key={link.href} isActive={pathname === link.href}>
+            <Link color="foreground" href={link.href} className={`text-black ${pathname === link.href ? "font-bold" : ""}`}>
+              {link.name}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       <NavbarContent justify="end">
