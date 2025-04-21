@@ -1,14 +1,16 @@
-import React from 'react'
-import Hero from './components/Hero'
-import Summary from './components/Summary'
+import React from "react";
+import Hero from "./components/Hero";
+import Summary from "./components/Summary";
+import TopProducts from "./components/TopProducts";
 
 const page = () => {
   return (
     <div>
-      <Hero/>
-      <Summary/>
+      <Hero />
+      <Summary />
+        <TopProducts />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
