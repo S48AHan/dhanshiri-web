@@ -86,3 +86,28 @@ header{
     @apply bg-background text-foreground;
   }
 }
+
+
+
+.custom-dot-list-style {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.custom-dot-list-style li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 10 5px;
+  transition: background 0.3s;
+}
+
+.custom-dot-list-style li.react-multi-carousel-dot--active {
+  background: #5f44f5;
+}
+
+ul.react-multi-carousel-dot-list li.react-multi-carousel-dot button {
+  display: none !important;
+}

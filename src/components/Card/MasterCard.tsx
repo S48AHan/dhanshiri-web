@@ -38,7 +38,7 @@ const MasterCard = ({
             : ""}
         </p>
       </CardContent>
-      {/* <CardFooter>{footer? <p>Card Footer</p>:<></>}</CardFooter> */}
+      <CardFooter>{footer? <p>Card Footer</p>:<></>}</CardFooter>
     </Card>
   );
 };
