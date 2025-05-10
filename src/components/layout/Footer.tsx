@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 import {
   Facebook,
   Instagram,
@@ -6,40 +6,61 @@ import {
   Phone,
   MessageCircle,
   MessageSquare,
-} from "lucide-react"
+} from "lucide-react";
+import Image from "next/image";
+import { sourceSerif4 } from "./Nav";
 
 export default function Footer() {
   return (
     <footer className="w-full bg-gradient-to-r from-blue-700 to-green-600 text-white">
       <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12">
-          {/* Logo and description */}
-          <div className="flex flex-col gap-4 md:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-wider">FIRST RUBBER</h2>
-            <p className="text-sm md:text-base opacity-90">
-              High-quality printing and manufacturing solutions tailored for your business.
-            </p>
-            <Link
-              href="#"
-              className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-2 rounded-md transition-colors w-max"
-            >
-              Know More
+        <div className="flex flex-col md:flex-row justify-between gap-12">
+          {/* Logo & Office */}
+          <div className="flex flex-col items-start md:w-1/3 space-y-6">
+            <Link href="/" className="flex items-center gap-1 lg:gap-3">
+              <Image
+                src="/Navbar/logo.png"
+                height={60}
+                width={110}
+                alt="logo"
+                className="h-full w-16 md:w-20"
+              />
+              <p className={`${sourceSerif4.className} text-2xl md:text-xl lg:text-3xl font-bold`}>
+                DHANSHIRI
+              </p>
             </Link>
+            <div className="text-sm">
+              <strong>Office:</strong>
+              <address className="not-italic mt-2">
+                85, Ayesha Complex,<br />
+                Room No. 236/237, 1st Floor,<br />
+                Malibagh, Dhaka-1217,<br />
+                Bangladesh
+              </address>
+            </div>
           </div>
 
-          {/* Contact and social links */}
-          <div className="md:w-1/2 space-y-6">
+          {/* Get In Touch Section */}
+          <div className="md:w-1/3 space-y-6">
             <h3 className="text-2xl font-semibold">Get In Touch</h3>
             <ul className="space-y-3 text-sm md:text-base">
               <li className="flex items-center gap-3">
                 <Facebook className="w-5 h-5" />
-                <Link href="https://www.facebook.com/dhanshirienterprise/" target="_blank" className="underline">
+                <Link
+                  href="https://www.facebook.com/dhanshirienterprise/"
+                  target="_blank"
+                  className="underline"
+                >
                   facebook.com/dhanshirienterprise
                 </Link>
               </li>
               <li className="flex items-center gap-3">
                 <Instagram className="w-5 h-5" />
-                <Link href="https://www.instagram.com/dhanshiri.enterprise" target="_blank" className="underline">
+                <Link
+                  href="https://www.instagram.com/dhanshiri.enterprise"
+                  target="_blank"
+                  className="underline"
+                >
                   @dhanshiri.enterprise
                 </Link>
               </li>
@@ -67,8 +88,38 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          {/* Quick Links Section */}
+          <div className="md:w-1/3 space-y-6">
+            <h3 className="text-2xl font-semibold">Quick Links</h3>
+            <ul className="space-y-3 text-sm md:text-base">
+              <li>
+                <Link href="/career" className="hover:underline">
+                  Career
+                </Link>
+              </li>
+              <li>
+                <Link href="/sustainability" className="hover:underline">
+                  Sustainability
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:underline">
+                  About Dhanshiri
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:underline">
+                  Contact Information
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-12 text-center text-xs opacity-75">
+          &copy; 2025 Dhanshiri Enterprise. All rights reserved.
         </div>
       </div>
     </footer>
-  )
+  );
 }

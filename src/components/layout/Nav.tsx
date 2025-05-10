@@ -15,7 +15,7 @@ import Image from "next/image";
 import { Source_Serif_4 } from "next/font/google";
 import { usePathname } from "next/navigation";
 
-const sourceSerif4 = Source_Serif_4({
+export const sourceSerif4 = Source_Serif_4({
   subsets: ["latin"],
   weight: "400", 
 });
@@ -74,7 +74,7 @@ export default function App() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-12" justify="center">
+      <NavbarContent className="hidden sm:flex md:gap-6 lg:gap-12" justify="center">
         {navLinks.map((link) => (
           <NavbarItem key={link.href} isActive={pathname === link.href}>
             <Link color="foreground" href={link.href} className={`text-black ${pathname === link.href ? "font-bold" : ""}`}>
